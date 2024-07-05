@@ -1,9 +1,14 @@
 name: Publish
 
 on:
-  workflow_dispatch:
-  release:
-    types: [published]
+  # push on master branch, pull requests to develop branch
+  push:
+    branches:
+      - develop
+      - main
+  pull_request:
+    branches:
+      - '**'
 
 jobs:
   tests:
